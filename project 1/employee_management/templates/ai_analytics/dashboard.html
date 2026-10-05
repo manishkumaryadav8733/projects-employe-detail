@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-4">
+<h2>AI Management Analytics</h2>
+<p>Employee operational metrics, client feedback and change requests.</p>
+<div class="row mb-4"><div class="col"><div class="card p-3"><b>Client Feedback</b><h3>{{ feedback_count }}</h3></div></div><div class="col"><div class="card p-3"><b>Change Requests</b><h3>{{ change_count }}</h3></div></div></div>
+<h4>Employee Metrics</h4>
+<table class="table table-bordered"><thead><tr><th>Employee</th><th>Projects</th><th>Tasks</th><th>Errors</th><th>Overtime</th><th>Leaves</th><th>Local Score</th></tr></thead><tbody>
+{% for item in ranked %}<tr><td>{% if item.metric.employee.get_full_name %}{{ item.metric.employee.get_full_name }}{% else %}{{ item.metric.employee.username }}{% endif %}</td><td>{{ item.metric.projects_count }}</td><td>{{ item.metric.tasks_completed }}</td><td>{{ item.metric.coding_errors }}</td><td>{{ item.metric.overtime_hours }}</td><td>{{ item.metric.leave_days }}</td><td>{{ item.score|default:'AI' }}</td></tr>{% empty %}<tr><td colspan="7">Add EmployeeMetric records in Admin to start analytics.</td></tr>{% endfor %}
+</tbody></table>
+</div>
+{% endblock %}

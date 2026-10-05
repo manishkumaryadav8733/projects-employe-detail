@@ -8,6 +8,7 @@ class User(AbstractUser):
         MANAGER = "MANAGER", "Manager"
         TEAM_LEAD = "TEAM_LEAD", "Team Lead"
         EMPLOYEE = "EMPLOYEE", "Employee"
+        CLIENT = "CLIENT", "Client"
 
     role = models.CharField(max_length=20, choices=Role.choices, default=Role.EMPLOYEE)
     phone = models.CharField(max_length=15, blank=True, null=True)
