@@ -4,7 +4,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "change-this-secret-key-in-production"
 DEBUG = False
-ALLOWED_HOSTS = ['.vercel.app',]
+ALLOWED_HOSTS = ['projects-employe-detail-employeeman.vercel.app']
 
 INSTALLED_APPS = [
     "django.contrib.admin",
